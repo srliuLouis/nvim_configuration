@@ -44,7 +44,7 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips', "~/.config/nvim/plugged/vim-sn
 set rtp+=~/.config/nvim/plugged/vim-snippets
 
 " LanguageTool settings
-let g:languagetool_jar='~/LanguageTool/LanguageTool*/languagetool-commandline.jar'
+let g:languagetool_jar='~/LanguageTool-4.3/languagetool-commandline.jar'
 
 " Spelunker settings
 let g:enable_spelunker_vim = 1
@@ -101,6 +101,12 @@ set smartcase
 " Indent
 set autoindent
 set cindent " this turns on C style indentation
+
+" Customize Vimdiff color
+hi DiffAdd      ctermfg=NONE          ctermbg=Green
+hi DiffChange   ctermfg=NONE          ctermbg=Yellow
+hi DiffDelete   ctermfg=LightBlue     ctermbg=Red
+hi DiffText     ctermfg=Yellow        ctermbg=Red
 
 " Backup
 set backup
