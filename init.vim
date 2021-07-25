@@ -12,11 +12,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'dpelle/vim-LanguageTool'
-Plug 'kamykn/popup-menu.nvim'
-Plug 'kamykn/spelunker.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'matze/vim-move'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mitsuse/autocomplete-swift'
 call plug#end()
 
 " Airline plugin setting
@@ -66,6 +68,11 @@ let g:javascript_plugin_flow = 1
 " matze-move setting
 let g:move_key_modifier = 'C'
 
+
+" Use deoplete
+"let g:deoplete#enable_at_startup = 1
+
+
 "----------------------------------------------------------------
 " 2. General settings
 "----------------------------------------------------------------
@@ -86,6 +93,7 @@ set ls=2 " shows a status line
 set hidden
 set cmdheight=2
 set updatetime=300
+set mouse=a
 
 " Tab and Space configuration
 set smarttab
@@ -130,3 +138,7 @@ noremap <f8> :wq<CR>
 " Clang-Format
 noremap <C-K> :pyf /usr/local/Cellar/clang-format/10.0.1/share/clang/clang-format.py<CR>
 noremap <C-K> <c-o>:pyf /usr/local/Cellar/clang-format/10.0.1/share/clang/clang-format.py<CR>
+
+"autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_placeholder)
+"autocmd BufNewFile,BufRead *.swift set filetype=swift
+
