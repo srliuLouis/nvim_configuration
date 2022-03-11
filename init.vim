@@ -17,6 +17,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'matze/vim-move'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'justmao945/vim-clang'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mitsuse/autocomplete-swift'
 call plug#end()
@@ -34,6 +36,8 @@ let g:go_version_warning = 0
 let g:loaded_youcompleteme = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_use_clangd = 1
+let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/usr/bin/clangd'
+
 
 " Vim-snippets(coc-snippets) setting
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -68,10 +72,21 @@ let g:javascript_plugin_flow = 1
 " matze-move setting
 let g:move_key_modifier = 'C'
 
+" vim-cpp-modern setting
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 1
 
 " Use deoplete
 "let g:deoplete#enable_at_startup = 1
 
+" vim-clang setting
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
 "----------------------------------------------------------------
 " 2. General settings
@@ -120,7 +135,7 @@ hi DiffText     ctermfg=Yellow        ctermbg=Red
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/vim_backup,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/vim_backup,/var/tmp,/tmp
+set directory=~/vim_backup
 
 "----------------------------------------------------------------
 " 3. Hot Key
