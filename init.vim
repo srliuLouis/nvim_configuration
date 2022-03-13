@@ -1,15 +1,17 @@
-"----------------------------------------------------------------
+-"----------------------------------------------------------------
 " 1. Plugins
 "----------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
+Plug 'prabirshrestha/vim-lsp'
 Plug 'nvim-lua/completion-nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Valloric/YouCompleteMe'
+Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -36,8 +38,18 @@ let g:go_version_warning = 0
 let g:loaded_youcompleteme = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_use_clangd = 1
+let g:ycm_global_ycm_extra_conf = '/Users/shi-rongliu/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
 let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/usr/bin/clangd'
+"let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/Users/shi-rongliu/opt/anaconda3/bin/python3.9'
+let g:python3_host_prog = '/usr/local/bin/python3'
+set completeopt-=preview
 
+" Jedi-vim setting
+let g:jedi#auto_initialization = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#environment_path = "/Users/shi-rongliu/opt/anaconda3/bin/python3.9"
 
 " Vim-snippets(coc-snippets) setting
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -88,6 +100,8 @@ let g:cpp_simple_highlight = 1
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 "----------------------------------------------------------------
 " 2. General settings
 "----------------------------------------------------------------
